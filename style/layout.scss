@@ -1,0 +1,36 @@
+body {
+	margin: 0;
+	background: $background-color;
+}
+
+.logo {
+	margin: auto;
+	padding: 30px;
+}
+
+.menu {
+	margin: auto;
+	max-width: 940px;
+}
+
+.fullscreen {
+	text-align: center;
+	span {
+		cursor: pointer;
+		display: inline-block;
+		padding: 20px;
+	}
+}
+
+.game-list {
+	li {
+		border: 1px solid #fff;
+		cursor: pointer;
+		display: block;
+		float: left;
+		margin: 10px;
+		padding: 20px;
+		text-align: center;
+		width: calc(33.33333% - 20px);
+	}
+}
