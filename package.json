@@ -21,6 +21,7 @@
     "aurelia-tools": "^0.1.16",
     "babel": "^5.8.34",
     "browser-sync": "^2.10.0",
+    "connect-history-api-fallback": "^1.1.0",
     "del": "^2.1.0",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.3.0",

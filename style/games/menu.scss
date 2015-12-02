@@ -1,0 +1,16 @@
+.game-menu {
+	margin: auto;
+	max-width: 940px;
+	.game-list {
+		a {
+			border: 1px solid #fff;
+			cursor: pointer;
+			display: block;
+			float: left;
+			margin: 10px;
+			padding: 20px;
+			text-align: center;
+			width: calc(33.33333% - 62px);
+		}
+	}
+}
