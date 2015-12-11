@@ -1,6 +1,11 @@
 .game-menu {
 	margin: auto;
 	max-width: 940px;
+	h1 {
+		text-align: center;
+		margin-top: 100px;
+		margin-bottom: 50px;
+	}
 	.game-list {
 		a {
 			border: 1px solid #fff;
