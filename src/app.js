@@ -1,10 +1,27 @@
+import {inject} from 'aurelia-framework';
+import {HttpClient} from 'aurelia-fetch-client';
+
+@inject(HttpClient)
 export class App {
+	constructor(http) {
+		http.configure(config => {
+			config.withBaseUrl('http://localhost:8000/');
+			config.withDefaults({
+				credentials: 'include',
+				headers: {
+					'Accept': 'application/json',
+					'X-Requested-With': 'Fetch'
+				}
+			});
+		});
+	}
+
 	configureRouter(config, router) {
 		config.title = 'Sing it or Wing it';
 		config.options.pushState = true;
 		config.map([
-			{ route: 'welcome',				name: 'welcome',			moduleId: 'welcome/welcome' },
-			{ route: '',					name: 'menu',				moduleId: 'games/menu' },
+			{ route: '',					name: 'home',				moduleId: 'home' },
+			{ route: 'games',				name: 'games',				moduleId: 'games/games' },
 			{ route: 'find-song',			name: 'find-song',			moduleId: 'games/find-song',		nav: true,	title: 'Find the Song' },
 			{ route: 'title-scramble',		name: 'title-scramble',		moduleId: 'games/title-scramble',	nav: true,	title: 'Title Scramble' },
 			{ route: 'picture-question',	name: 'picture-question',	moduleId: 'games/picture-question',	nav: true,	title: 'Picture Question' },

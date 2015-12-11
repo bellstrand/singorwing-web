@@ -1,0 +1,17 @@
+<template>
+	<div class="admin">
+		<nav class="navbar" role="navigation">
+			<ul>
+				<li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
+					<a href.bind="row.href">${row.title}</a>
+				</li>
+			</ul>
+		</nav>
+
+		<article>
+			<h1>${router.currentInstruction.config.title}</h1>
+			<router-view></router-view>
+		</article>
+		<div class="clearfix"></div>
+	</div>
+</template>

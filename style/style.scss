@@ -1,13 +1,16 @@
-@import 'colors';
+@import 'global/settings';
 
 
-@import 'reset';
-@import 'typography';
-@import 'helpers';
+@import 'global/reset';
+@import 'global/typography';
+@import 'global/helpers';
+@import 'global/forms';
 
 
-@import 'layout';
+@import 'global/layout';
 
 @import 'splash';
 
+@import 'home';
+@import 'admin/admin';
 @import 'games/menu';

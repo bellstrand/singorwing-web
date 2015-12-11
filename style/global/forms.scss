@@ -1,0 +1,50 @@
+input {
+	display: block;
+	width: 100%;
+	font-size: 14px;
+	line-height: 22px;
+	height: 34px;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-radius: $border-radius;
+}
+
+label {
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	font-weight: 700;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+.btn {
+	display: inline-block;
+    padding: 6px 12px;
+    color: #000;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    background: #fff;
+    border: 1px solid transparent;
+    border-radius: $border-radius;
+    &:hover {
+    	background: darken(#fff, 15%);
+    }
+}
+
+.btn-block {
+	display: block;
+	width: 100%;
+}
+
