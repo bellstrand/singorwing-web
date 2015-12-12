@@ -20,6 +20,7 @@
     "aurelia-bundler": "^0.1.9",
     "aurelia-tools": "^0.1.16",
     "babel": "^5.8.34",
+    "babel-eslint": "^4.1.6",
     "browser-sync": "^2.10.0",
     "connect-history-api-fallback": "^1.1.0",
     "del": "^2.1.0",

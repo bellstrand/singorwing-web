@@ -1,3 +1,10 @@
+label {
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	font-weight: 700;
+}
+
 input {
 	display: block;
 	width: 100%;
@@ -9,11 +16,15 @@ input {
 	border-radius: $border-radius;
 }
 
-label {
-	display: inline-block;
-	max-width: 100%;
-	margin-bottom: 5px;
-	font-weight: 700;
+select {
+	display: block;
+	width: 100%;
+	font-size: 14px;
+	line-height: 22px;
+	height: 100%;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-radius: $border-radius;
 }
 
 .form-group {
