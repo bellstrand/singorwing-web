@@ -3,27 +3,36 @@
 		<form>
 			<div class="form-group">
 				<label for="name">Name</label>
-				<input value.bind="user.name" type="text" id="name"/>
+				<input value.bind="user.name" type="text" id="name" autofocus />
 			</div>
 
 			<div class="form-group">
 				<label for="username">Username</label>
-				<input value.bind="user.username" type="text" id="username"/>
+				<input value.bind="user.username" type="text" id="username" />
 			</div>
 
 			<div class="form-group">
 				<label for="email">Email</label>
-				<input value.bind="user.email" type="text" id="email"/>
+				<input value.bind="user.email" type="text" id="email" />
 			</div>
 
 			<div class="form-group">
 				<label for="password">Password</label>
-				<input value.bind="user.password" type="text" id="password"/>
+				<input value.bind="user.password" type="text" id="password" />
 			</div>
 
-			<select size.bind="authorities.length" multiple>
-				<option repeat.for="authority of authorities">${authority}</option>
-			</select>
+			<div class="form-group">
+				<label for="authorities">Authorities</label>
+				<select class="multiple" value.bind="user.authorities" size.bind="authorities.length" id="authorities" multiple>
+					<option repeat.for="authority of authorities">${authority}</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<button if.bind="!user._id" click.delegate="create()" class="btn btn-block btn-success create">Create</button>
+				<button if.bind="user._id" click.delegate="update()" class="btn btn-success btn-left update">Update</button>
+				<button if.bind="user._id" click.delegate="destroy()" class="btn btn-danger btn-right update">Delete</button>
+			</div>
 		</form>
 	</div>
 </template>

@@ -1,16 +1,22 @@
 <template>
 	<div class="user-list">
+		<div class="controls">
+			<input value.bind="search" type="text" class="search" placeholder="Search" change.bind="filter(search)" />
+			<a class="new btn btn-primary" route-href="route: user-create">New</a>
+		</div>
 		<table class="table-striped">
 			<thead>
 				<tr>
+					<th>Username</th>
 					<th>Name</th>
-					<th>Active</th>
+					<th>Email</th>
 				</tr>
 			</thead>
 			<tbody class="table-hover">
-				<tr repeat.for="user of users" click.delegate="router.navigateToRoute('user-edit', { id: user.id })">
+				<tr repeat.for="user of filteredUsers" click.delegate="router.navigateToRoute('user-edit', { id: user._id })">
+					<td>${user.username}</td>
 					<td>${user.name}</td>
-					<td>${user.active}</td>
+					<td>${user.email}</td>
 				</tr>
 			</tbody>
 		</table>

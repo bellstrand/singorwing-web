@@ -1,6 +1,7 @@
 {
 	"extends": "./node_modules/aurelia-tools/.eslintrc",
 	"rules": {
-		"indent": [2, "tab"]
+		"indent": [2, "tab"],
+		"space-after-keywords": 0
 	}
 }

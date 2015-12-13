@@ -1,12 +1,16 @@
+html {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: $white;
+}
 h1, h2, h3, h4, h5, h6 {
 	margin-top: 0;
 }
+
 h1 {
 	font-size:48px;
 	margin-bottom:.3em;
 	text-transform:uppercase;
 }
-
 h2 {
 	font-size:34px;
 	margin-bottom:.3em;
@@ -27,7 +31,17 @@ h5 {
 h6 {
 	font-size:18px;
 }
+
 p {
 	font-size:13px;
 	margin-bottom:1.5em;
+}
+
+a {
+	color: $white;
+	decoration: none;
+	&:hover {
+		color: darken($white, 15%);
+		decoration: underline;
+	}
 }

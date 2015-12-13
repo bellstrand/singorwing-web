@@ -1,3 +1,34 @@
 <template>
+	<div class="song-edit">
+		<form>
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input value.bind="song.name" type="text" id="name" autofocus />
+			</div>
 
+			<div class="form-group">
+				<label for="artist">Artist</label>
+				<select value.bind="song.artist" id="artist">
+					<option value="" selected>Select Artist</option>
+					<option repeat.for="artist of artists" value="${artist._id}">${artist.name}</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="released">Released</label>
+				<input value.bind="song.released" type="text" id="released" />
+			</div>
+
+			<div class="form-group">
+				<label for="lyrics">Lyrics</label>
+				<textarea value.bind="song.lyrics" rows="10" id="lyrics"></textarea>
+			</div>
+
+			<div class="form-group">
+				<button if.bind="!song._id" click.delegate="create()" class="btn btn-block btn-success create">Create</button>
+				<button if.bind="song._id" click.delegate="update()" class="btn btn-success btn-left update">Update</button>
+				<button if.bind="song._id" click.delegate="destroy()" class="btn btn-danger btn-right update">Delete</button>
+			</div>
+		</form>
+	</div>
 </template>

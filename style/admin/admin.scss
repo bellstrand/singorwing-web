@@ -19,4 +19,15 @@
 		float: right;
 		width: calc(100% - 220px);
 	}
+
+	.controls {
+		display: flex;
+		margin-bottom: 15px;
+		.search {
+			margin-right: 10px;
+		}
+		.new {
+			margin-left: 10px;
+		}
+	}
 }

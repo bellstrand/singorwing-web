@@ -8,6 +8,25 @@ export class UserList {
 		this.router = router;
 		http.fetch('users').then(response => response.json()).then(users => {
 			this.users = users;
+			this.filter(this.search);
 		}, () => {});
+	}
+
+	filter(search) {
+		if(search) {
+			let found;
+			search = search.toLowerCase();
+			this.filteredUsers = this.users.filter(user => {
+				found = false;
+				Object.keys(user).forEach(prop => {
+					if(typeof user[prop] === 'string' && user[prop].toLowerCase().indexOf(search) !== -1) {
+						found = true;
+					}
+				});
+				return found;
+			});
+		} else {
+			this.filteredUsers = this.users;
+		}
 	}
 }

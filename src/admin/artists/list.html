@@ -1,3 +1,20 @@
 <template>
-
+	<div class="artist-list">
+		<div class="controls">
+			<input value.bind="search" type="text" class="search" placeholder="Search" change.bind="filter(search)" />
+			<a class="new btn btn-primary" route-href="route: artist-create">New</a>
+		</div>
+		<table class="table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody class="table-hover">
+				<tr repeat.for="artist of filteredArtists" click.delegate="router.navigateToRoute('artist-edit', { id: artist._id })">
+					<td>${artist.name}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </template>

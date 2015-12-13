@@ -1,9 +1,10 @@
 import {inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
+import {Base64Utils} from './utils/base64-utils';
 
-@inject(HttpClient)
+@inject(HttpClient, Base64Utils)
 export class App {
-	constructor(http) {
+	constructor(http, base64Utils) {
 		http.configure(config => {
 			config.withBaseUrl('http://localhost:8000/');
 			config.withDefaults({

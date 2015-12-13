@@ -4,8 +4,9 @@ import {Router} from 'aurelia-router';
 
 @inject(HttpClient, Router)
 export class UserEdit {
+	user = {};
 	authorities = [
-		'moderator',
+		'admin',
 		'sysadmin'
 	];
 
@@ -15,22 +16,36 @@ export class UserEdit {
 	}
 
 	activate(params) {
-		this.http.fetch('users/' + params.id).then(response => response.json()).then(user => {
-			this.user = user;
-		}, () => {});
+		if(params.id) {
+			this.http.fetch('users/' + params.id).then(response => response.json()).then(user => {
+				this.user = user;
+			}, () => {});
+		}
 	}
 
 	create() {
 		this.http.fetch('users', {
 			method: 'post',
 			body: json(this.user)
+		}).then(() => {
+			this.router.navigateToRoute('users');
 		});
 	}
 
 	update() {
-		this.http.fetch('users', {
+		this.http.fetch('users/' + this.user._id, {
 			method: 'put',
 			body: json(this.user)
+		}).then(() => {
+			this.router.navigateToRoute('users');
+		});
+	}
+
+	destroy() {
+		this.http.fetch('users/' + this.user._id, {
+			method: 'delete'
+		}).then(() => {
+			this.router.navigateToRoute('users');
 		});
 	}
 }
