@@ -21,6 +21,10 @@ export class ArtistEdit {
 		'Rock',
 		'World'
 	];
+	languages = [
+		'English',
+		'Swedish'
+	];
 
 	constructor(http, router) {
 		this.http = http;

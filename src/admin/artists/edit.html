@@ -14,8 +14,8 @@
 			</div>
 
 			<div class="form-group">
-				<label for="active">Active</label>
-				<input value.bind="artist.active" type="text" id="active" />
+				<label for="decade">Decade</label>
+				<input value.bind="artist.decade" type="text" id="decade" />
 			</div>
 
 			<div class="form-group">
@@ -26,6 +26,23 @@
 			<div class="form-group">
 				<label for="image">Image</label>
 				<input files.bind="artist.image" type="file" accept="image/*" id="image" />
+			</div>
+
+			<div class="form-group">
+				<label for="language">Language</label>
+				<select value.bind="artist.language" id="language">
+					<option repeat.for="language of languages">${language}</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="members">Members</label>
+				<textarea value.bind="artist.members" rows="6" id="members"></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="biography">Biography</label>
+				<textarea value.bind="artist.biography" rows="10" id="biography"></textarea>
 			</div>
 
 			<div class="form-group">
