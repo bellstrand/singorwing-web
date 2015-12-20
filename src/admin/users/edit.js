@@ -19,7 +19,7 @@ export class UserEdit {
 		if(params.id) {
 			this.http.fetch('users/' + params.id).then(response => response.json()).then(user => {
 				this.user = user;
-			}, () => {});
+			}).catch(() => {});
 		}
 	}
 
@@ -29,7 +29,7 @@ export class UserEdit {
 			body: json(this.user)
 		}).then(response => response.json()).then(() => {
 			this.router.navigateToRoute('users');
-		});
+		}).catch(() => {});
 	}
 
 	update() {
@@ -38,7 +38,7 @@ export class UserEdit {
 			body: json(this.user)
 		}).then(response => response.json()).then(() => {
 			this.router.navigateToRoute('users');
-		});
+		}).catch(() => {});
 	}
 
 	destroy() {
@@ -46,6 +46,6 @@ export class UserEdit {
 			method: 'delete'
 		}).then(response => response.json()).then(() => {
 			this.router.navigateToRoute('users');
-		});
+		}).catch(() => {});
 	}
 }

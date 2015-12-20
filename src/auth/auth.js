@@ -18,7 +18,7 @@ export class Auth {
 			}).then(response => response.json()).then(user => {
 				this.user = user;
 				resolve(user);
-			}, error => {
+			}).catch(error => {
 				reject(error);
 			});
 		});

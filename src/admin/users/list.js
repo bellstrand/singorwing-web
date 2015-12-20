@@ -9,7 +9,7 @@ export class UserList {
 		http.fetch('users').then(response => response.json()).then(users => {
 			this.users = users;
 			this.filter(this.search);
-		}, () => {});
+		}).catch(() => {});
 	}
 
 	filter(search) {

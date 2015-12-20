@@ -9,7 +9,7 @@ export class ArtistList {
 		http.fetch('artists').then(response => response.json()).then(artists => {
 			this.artists = artists;
 			this.filter(this.search);
-		}, () => {});
+		}).catch(() => {});
 	}
 
 	filter(search) {

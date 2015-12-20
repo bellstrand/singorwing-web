@@ -14,6 +14,14 @@ export class App {
 					'X-Requested-With': 'Fetch'
 				}
 			});
+			config.withInterceptor({
+				response(response) {
+					if(response.status !== 200) {
+						throw response.statusText;
+					}
+					return response;
+				}
+			});
 		});
 	}
 

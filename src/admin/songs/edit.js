@@ -16,11 +16,11 @@ export class SongEdit {
 	activate(params) {
 		this.http.fetch('artists').then(response => response.json()).then(artists => {
 			this.artists = artists;
-		}, () => {});
+		}).catch(() => {});
 		if(params.id) {
 			this.http.fetch('songs/' + params.id).then(response => response.json()).then(song => {
 				this.song = song;
-			}, () => {});
+			}).catch(() => {});
 		}
 	}
 
@@ -38,7 +38,7 @@ export class SongEdit {
 			body: json(this.song)
 		}).then(response => response.json()).then(() => {
 			this.router.navigateToRoute('songs');
-		});
+		}).catch(() => {});
 	}
 
 	update() {
@@ -47,7 +47,7 @@ export class SongEdit {
 			body: json(this.song)
 		}).then(response => response.json()).then(() => {
 			this.router.navigateToRoute('songs');
-		});
+		}).catch(() => {});
 	}
 
 	destroy() {
@@ -55,6 +55,6 @@ export class SongEdit {
 			method: 'delete'
 		}).then(response => response.json()).then(() => {
 			this.router.navigateToRoute('songs');
-		});
+		}).catch(() => {});
 	}
 }

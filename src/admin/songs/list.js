@@ -9,7 +9,7 @@ export class SongList {
 		http.fetch('songs').then(response => response.json()).then(songs => {
 			this.songs = songs;
 			this.filter(this.search);
-		}, () => {});
+		}).catch(() => {});
 	}
 
 	filter(search) {
