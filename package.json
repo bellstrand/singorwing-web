@@ -33,8 +33,10 @@
     "gulp-sass": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "jspm": "^0.16.15",
+    "proxy-middleware": "^0.15.0",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
+    "url": "^0.11.0",
     "vinyl-paths": "^2.1.0"
   },
   "jspm": {

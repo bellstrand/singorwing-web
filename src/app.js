@@ -6,7 +6,7 @@ import {Base64Utils} from './utils/base64-utils';
 export class App {
 	constructor(http, base64Utils) {
 		http.configure(config => {
-			config.withBaseUrl('http://localhost:8000/api/');
+			config.withBaseUrl('http://' + location.hostname + ':' + location.port + '/api/');
 			config.withDefaults({
 				credentials: 'include',
 				headers: {
