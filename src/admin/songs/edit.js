@@ -23,6 +23,14 @@ export class SongEdit {
 		}
 	}
 
+	setGenre(artistId) {
+		this.artists.map(artist => {
+			if(artist._id === artistId) {
+				this.song.genre = artist.genre;
+			}
+		});
+	}
+
 	create() {
 		this.http.fetch('songs', {
 			method: 'post',

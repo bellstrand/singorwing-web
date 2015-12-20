@@ -8,11 +8,13 @@
 			<thead>
 				<tr>
 					<th>Name</th>
+					<th>Decade</th>
 				</tr>
 			</thead>
 			<tbody class="table-hover">
 				<tr repeat.for="artist of filteredArtists" click.delegate="router.navigateToRoute('artist-edit', { id: artist._id })">
 					<td>${artist.name}</td>
+					<td>${artist.decade}s</td>
 				</tr>
 			</tbody>
 		</table>

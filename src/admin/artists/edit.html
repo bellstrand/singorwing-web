@@ -7,6 +7,11 @@
 			</div>
 
 			<div class="form-group">
+				<label for="difficulty">Difficulty ${artist.difficulty}</label>
+				<input value.bind="artist.difficulty" type="range" min="1" max="10" id="difficulty" />
+			</div>
+
+			<div class="form-group">
 				<label for="genre">Genre</label>
 				<select value.bind="artist.genre" id="genre">
 					<option repeat.for="genre of genres">${genre}</option>
@@ -15,17 +20,9 @@
 
 			<div class="form-group">
 				<label for="decade">Decade</label>
-				<input value.bind="artist.decade" type="text" id="decade" />
-			</div>
-
-			<div class="form-group">
-				<label for="origin">Origin</label>
-				<input value.bind="artist.origin" type="text" id="origin" />
-			</div>
-
-			<div class="form-group">
-				<label for="image">Image</label>
-				<input files.bind="artist.image" type="file" accept="image/*" id="image" />
+				<select value.bind="artist.decade" id="decade">
+					<option repeat.for="decade of decades" value="${decade}">${decade}s</option>
+				</select>
 			</div>
 
 			<div class="form-group">
@@ -36,8 +33,13 @@
 			</div>
 
 			<div class="form-group">
+				<label for="image">Image</label>
+				<input files.bind="artist.image" type="file" accept="image/*" id="image" />
+			</div>
+
+			<div class="form-group">
 				<label for="members">Members</label>
-				<textarea value.bind="artist.members" rows="6" id="members"></textarea>
+				<textarea value.bind="artist.members" rows="5" id="members"></textarea>
 			</div>
 
 			<div class="form-group">

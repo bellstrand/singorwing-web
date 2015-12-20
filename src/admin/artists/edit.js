@@ -25,6 +25,7 @@ export class ArtistEdit {
 		'English',
 		'Swedish'
 	];
+	decades = [1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010];
 
 	constructor(http, router) {
 		this.http = http;
