@@ -9,7 +9,7 @@ export class ArtistEdit {
 		genre: '',
 		decade: ''
 	};
-	genres = ['anime', 'blues', 'comedy', 'country', 'dance', 'disney', 'folk', 'hard Rock', 'hip-hop/rap', 'metal', 'pop', 'reggae', 'rock', 'world'];
+	genres = ['anime', 'blues', 'comedy', 'country', 'dance', 'disney', 'folk', 'hard Rock', 'hip-hop/rap', 'metal', 'pop', 'punk', 'reggae', 'rock', 'world'];
 	languages = ['english', 'swedish'];
 	decades = [1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010];
 
