@@ -6,7 +6,8 @@ import {Router} from 'aurelia-router';
 export class ArtistEdit {
 	artist = {
 		language: 'swedish',
-		genre: ''
+		genre: '',
+		decade: ''
 	};
 	genres = ['anime', 'blues', 'comedy', 'country', 'dance', 'disney', 'folk', 'hard Rock', 'hip-hop/rap', 'metal', 'pop', 'reggae', 'rock', 'world'];
 	languages = ['english', 'swedish'];
