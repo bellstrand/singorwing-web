@@ -36,7 +36,7 @@ export class SongEdit {
 		this.http.fetch('songs', {
 			method: 'post',
 			body: json(this.song)
-		}).then(() => {
+		}).then(response => response.json()).then(() => {
 			this.router.navigateToRoute('songs');
 		});
 	}
@@ -45,7 +45,7 @@ export class SongEdit {
 		this.http.fetch('songs/' + this.song._id, {
 			method: 'put',
 			body: json(this.song)
-		}).then(() => {
+		}).then(response => response.json()).then(() => {
 			this.router.navigateToRoute('songs');
 		});
 	}
@@ -53,7 +53,7 @@ export class SongEdit {
 	destroy() {
 		this.http.fetch('songs/' + this.song._id, {
 			method: 'delete'
-		}).then(() => {
+		}).then(response => response.json()).then(() => {
 			this.router.navigateToRoute('songs');
 		});
 	}

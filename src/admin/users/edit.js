@@ -27,7 +27,7 @@ export class UserEdit {
 		this.http.fetch('users', {
 			method: 'post',
 			body: json(this.user)
-		}).then(() => {
+		}).then(response => response.json()).then(() => {
 			this.router.navigateToRoute('users');
 		});
 	}
@@ -36,7 +36,7 @@ export class UserEdit {
 		this.http.fetch('users/' + this.user._id, {
 			method: 'put',
 			body: json(this.user)
-		}).then(() => {
+		}).then(response => response.json()).then(() => {
 			this.router.navigateToRoute('users');
 		});
 	}
@@ -44,7 +44,7 @@ export class UserEdit {
 	destroy() {
 		this.http.fetch('users/' + this.user._id, {
 			method: 'delete'
-		}).then(() => {
+		}).then(response => response.json()).then(() => {
 			this.router.navigateToRoute('users');
 		});
 	}

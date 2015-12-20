@@ -47,7 +47,7 @@ export class ArtistEdit {
 			this.http.fetch('artists', {
 				method: 'post',
 				body: json(this.artist)
-			}).then(() => {
+			}).then(response => response.json()).then(() => {
 				this.router.navigateToRoute('artists');
 			});
 		});
@@ -58,7 +58,7 @@ export class ArtistEdit {
 			this.http.fetch('artists/' + this.artist._id, {
 				method: 'put',
 				body: json(this.artist)
-			}).then(() => {
+			}).then(response => response.json()).then(() => {
 				this.router.navigateToRoute('artists');
 			});
 		});
@@ -67,7 +67,7 @@ export class ArtistEdit {
 	destroy() {
 		this.http.fetch('artists/' + this.artist._id, {
 			method: 'delete'
-		}).then(() => {
+		}).then(response => response.json()).then(() => {
 			this.router.navigateToRoute('artists');
 		});
 	}
