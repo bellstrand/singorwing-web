@@ -4,27 +4,12 @@ import {Router} from 'aurelia-router';
 
 @inject(HttpClient, Router)
 export class ArtistEdit {
-	artist = {};
-	genres = [
-		'Anime',
-		'Blues',
-		'Comedy',
-		'Country',
-		'Dance',
-		'Disney',
-		'Folk',
-		'Hard Rock',
-		'Hip-Hip/Rap',
-		'Metal',
-		'Pop',
-		'Reggae',
-		'Rock',
-		'World'
-	];
-	languages = [
-		'English',
-		'Swedish'
-	];
+	artist = {
+		language: 'swedish',
+		genre: ''
+	};
+	genres = ['anime', 'blues', 'comedy', 'country', 'dance', 'disney', 'folk', 'hard Rock', 'hip-hop/rap', 'metal', 'pop', 'reggae', 'rock', 'world'];
+	languages = ['english', 'swedish'];
 	decades = [1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010];
 
 	constructor(http, router) {
@@ -35,6 +20,7 @@ export class ArtistEdit {
 	activate(params) {
 		if(params.id) {
 			this.http.fetch('artists/' + params.id).then(response => response.json()).then(artist => {
+				artist.decade = artist.decade.toString();
 				this.artist = artist;
 			}, () => {});
 		}

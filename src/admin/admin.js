@@ -2,7 +2,9 @@ export class Admin {
 	configureRouter(config, router) {
 		config.title = 'Admin';
 		config.map([
-			{ route: ['users', ''],		name: 'users',			moduleId: './users/list',		title: 'Users',	 	nav: true },
+			{ route: '', redirect: 'users' },
+
+			{ route: 'users',			name: 'users',			moduleId: './users/list',		title: 'Users',	 	nav: true },
 			{ route: 'users/create',	name: 'user-create',	moduleId: './users/edit',		title: 'Create user' },
 			{ route: 'users/:id',		name: 'user-edit',		moduleId: './users/edit',		title: 'Edit user' },
 

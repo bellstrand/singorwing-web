@@ -13,21 +13,23 @@
 
 			<div class="form-group">
 				<label for="genre">Genre</label>
-				<select value.bind="artist.genre" id="genre">
-					<option repeat.for="genre of genres">${genre}</option>
+				<select value.bind="artist.genre" id="genre" class="capitalize">
+					<option value="" selected disabled>Select Genre</option>
+					<option repeat.for="genre of genres" >${genre}</option>
 				</select>
 			</div>
 
 			<div class="form-group">
 				<label for="decade">Decade</label>
 				<select value.bind="artist.decade" id="decade">
+					<option value="" selected disabled>Select Decade</option>
 					<option repeat.for="decade of decades" value="${decade}">${decade}s</option>
 				</select>
 			</div>
 
 			<div class="form-group">
 				<label for="language">Language</label>
-				<select value.bind="artist.language" id="language">
+				<select value.bind="artist.language" id="language" class="capitalize">
 					<option repeat.for="language of languages">${language}</option>
 				</select>
 			</div>

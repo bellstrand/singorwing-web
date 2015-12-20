@@ -32,7 +32,9 @@ export class App {
 			{ route: 'guess-artist',		name: 'guess-artist',		moduleId: 'games/guess-artist',		nav: true,	title: 'Guess the Artist' },
 			{ route: 'admin',				name: 'admin',				moduleId: 'admin/admin',			title: 'Admin' }
 		]);
-
+		config.mapUnknownRoutes(() => {
+			router.navigateToRoute('home');
+		});
 		this.router = router;
 	}
 }
