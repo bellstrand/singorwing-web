@@ -1,12 +1,13 @@
 import {inject} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
+import {Events} from './events';
 import {Base64Utils} from './utils/base64-utils';
 
-@inject(HttpClient, Base64Utils)
+@inject(HttpClient, Events, Base64Utils)
 export class App {
 	constructor(http, base64Utils) {
 		http.configure(config => {
-			config.withBaseUrl('http://' + location.hostname + ':' + location.port + '/api/');
+			config.withBaseUrl('http://' + 'singorwing.com' + ':' + '80' + '/api/');
 			config.withDefaults({
 				credentials: 'include',
 				headers: {

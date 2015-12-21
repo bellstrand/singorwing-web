@@ -6,7 +6,7 @@ import {Router} from 'aurelia-router';
 export class SongEdit {
 	song = {};
 	artists = [];
-	genres = ['anime', 'blues', 'comedy', 'country', 'dance', 'disney', 'folk', 'hard Rock', 'hip-hop/rap', 'metal', 'pop', 'punk', 'reggae', 'rock', 'world'];
+	genres = ['anime', 'blues/jass', 'comedy', 'country', 'dance', 'disney', 'folk', 'hard rock', 'hip-hop/rap', 'metal', 'pop', 'punk', 'reggae', 'rock', 'world'];
 
 	constructor(http, router) {
 		this.http = http;
