@@ -29,11 +29,10 @@ export class ArtistEdit {
 
 	convertImage() {
 		return new Promise(resolve => {
-			if(typeof this.artist.image !== 'object' || this.artist.image.length === 0) {
-				delete this.artist.image;
+			if(typeof this.image !== 'object' || this.image.length === 0) {
 				resolve();
 			} else {
-				this.artist.image[0].convertToBase64().then(data => {
+				this.image[0].convertToBase64().then(data => {
 					delete this.artist.image;
 					this.artist.base64Image = data;
 					resolve();
