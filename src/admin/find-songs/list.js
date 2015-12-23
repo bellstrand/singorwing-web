@@ -16,13 +16,14 @@ export class FindSongList {
 		if(search) {
 			let found;
 			search = search.toLowerCase();
-			this.filteredFindSongs = this.findSongs.filter(song => {
+			this.filteredFindSongs = this.findSongs.filter(findSong => {
 				found = false;
-				Object.keys(song).forEach(prop => {
-					if(typeof song[prop] === 'string' && song[prop].toLowerCase().indexOf(search) !== -1) {
+				Object.keys(findSong).forEach(prop => {
+					if(typeof findSong[prop] === 'string' && findSong[prop].toLowerCase().indexOf(search) !== -1) {
 						found = true;
 					}
 				});
+				found = findSong.song.name.toLowerCase().indexOf(search) !== -1 ? true : found;
 				return found;
 			});
 		} else {

@@ -23,6 +23,7 @@ export class SongList {
 						found = true;
 					}
 				});
+				found = song.artist.name.toLowerCase().indexOf(search) !== -1 ? true : found;
 				return found;
 			});
 		} else {
