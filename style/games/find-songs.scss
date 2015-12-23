@@ -1,0 +1,29 @@
+.find-songs {
+	height: 100vh;
+	.phrase {
+		font-size: 48px;
+		margin: auto;
+		width: auto;
+		div {
+			background: #56e;
+			border-radius: 5px;
+			display: inline-block;
+			margin: 0 8px;
+			padding: 10px;
+			position: relative;
+			cursor: pointer;
+		}
+		.word {
+			display: block;
+			min-width: 160px;
+			text-align: center;
+			visibility: hidden;
+		}
+		.index {
+			left: 0;
+			position: absolute;
+			text-align: center;
+			width: 100%;
+		}
+	}
+}

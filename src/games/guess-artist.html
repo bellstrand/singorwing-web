@@ -1,4 +1,6 @@
 <template>
+	<require from="../score/score"></require>
+	<score></score>
 	<div class="guess-artist">
 		<img if.bind="artist" src="images/${artist.image}" alt="${artist.name}" />
 		<span>${artist.name}</span>

@@ -13,8 +13,13 @@ export class Admin {
 			{ route: 'artists/:id',		name: 'artist-edit',	moduleId: './artists/edit',		title: 'Edit Artist' },
 
 			{ route: 'songs',			name: 'songs',			moduleId: './songs/list',		title: 'Songs',	 	nav: true },
-			{ route: 'songs/create',	name: 'song-create',	moduleId: './songs/edit',		title: 'Create song' },
-			{ route: 'songs/:id',		name: 'song-edit',		moduleId: './songs/edit',		title: 'Edit song' }
+			{ route: 'songs/create',	name: 'song-create',	moduleId: './songs/edit',		title: 'Create Song' },
+			{ route: 'songs/:id',		name: 'song-edit',		moduleId: './songs/edit',		title: 'Edit Song' },
+
+			{ route: 'find-songs',			name: 'find-songs',			moduleId: './find-songs/list',		title: 'Find Songs',	 	nav: true },
+			{ route: 'find-songs/create',	name: 'find-song-create',	moduleId: './find-songs/edit',		title: 'Create Find Song' },
+			{ route: 'find-songs/:id',		name: 'find-song-edit',		moduleId: './find-songs/edit',		title: 'Edit Find Song' }
+
 		]);
 
 		this.router = router;

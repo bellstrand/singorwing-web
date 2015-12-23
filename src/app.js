@@ -7,7 +7,7 @@ import {Base64Utils} from './utils/base64-utils';
 export class App {
 	constructor(http, base64Utils) {
 		http.configure(config => {
-			config.withBaseUrl('http://' + 'singorwing.com' + ':' + '80' + '/api/');
+			config.withBaseUrl('http://' + location.hostname + ':' + location.port + '/api/');
 			config.withDefaults({
 				credentials: 'include',
 				headers: {
@@ -32,7 +32,7 @@ export class App {
 		config.map([
 			{ route: '',					name: 'home',				moduleId: 'home' },
 			{ route: 'games',				name: 'games',				moduleId: 'games/games' },
-			{ route: 'find-song',			name: 'find-song',			moduleId: 'games/find-song',		nav: true,	title: 'Find the Song' },
+			{ route: 'find-songs',			name: 'find-songs',			moduleId: 'games/find-songs',		nav: true,	title: 'Find the Song' },
 			{ route: 'title-scramble',		name: 'title-scramble',		moduleId: 'games/title-scramble',	nav: true,	title: 'Title Scramble' },
 			{ route: 'picture-question',	name: 'picture-question',	moduleId: 'games/picture-question',	nav: true,	title: 'Picture Question' },
 			{ route: 'duel',				name: 'duel',				moduleId: 'games/duel',				nav: true,	title: 'Duel' },

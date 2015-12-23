@@ -1,0 +1,14 @@
+<template>
+	<require from="../score/score"></require>
+	<score></score>
+	<div class="find-songs">
+		<div class="vertical-align-outer">
+			<div class="phrase vertical-align-inner">
+				<div repeat.for="phrase of findSong.phrase.split(' ')" click.delegate="show($index)">
+					<span class="index">${$index + 1}</span>
+					<span class="word">${phrase}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

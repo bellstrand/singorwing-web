@@ -27,15 +27,9 @@ export class GuessArtist {
 
 	keydown(keyCode) {
 		switch(keyCode) {
-			case 37:
-				this.previous();
-				break;
-			case 39:
-				this.next();
-				break;
-			case 81:
-				this.quit();
-				break;
+			case 37: this.previous(); break;
+			case 39: this.next(); break;
+			case 81: this.quit(); break;
 		}
 	}
 

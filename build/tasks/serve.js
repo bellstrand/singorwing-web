@@ -7,15 +7,17 @@ let gulp = require('gulp'),
 	history = require('connect-history-api-fallback');
 
 gulp.task('serve', ['build'], done => {
-	let proxyOptions = url.parse('http://localhost:8000/api');
-	proxyOptions.route = '/api';
+	let apiProxyOptions = url.parse('http://localhost:8000/api');
+	apiProxyOptions.route = '/api';
+	let imageProxyOptions = url.parse('http://localhost:8000/images');
+	imageProxyOptions.route = '/images';
 	browserSync({
 		online: false,
 		open: false,
 		port: 9000,
 		server: {
 			baseDir: ['.'],
-			middleware: [proxy(proxyOptions), history(), (req, res, next) => {
+			middleware: [proxy(apiProxyOptions), proxy(imageProxyOptions), history(), (req, res, next) => {
 				res.setHeader('Access-Control-Allow-Origin', '*');
 				next();
 			}]

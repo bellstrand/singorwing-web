@@ -20,3 +20,13 @@
 .capitalize {
 	text-transform: capitalize;
 }
+
+.vertical-align-outer {
+	display: table;
+	height: 100%;
+	margin: auto;
+	.vertical-align-inner {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
