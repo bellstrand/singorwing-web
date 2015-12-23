@@ -18,7 +18,11 @@ export class Admin {
 
 			{ route: 'find-songs',			name: 'find-songs',			moduleId: './find-songs/list',		title: 'Find Songs',	 	nav: true },
 			{ route: 'find-songs/create',	name: 'find-song-create',	moduleId: './find-songs/edit',		title: 'Create Find Song' },
-			{ route: 'find-songs/:id',		name: 'find-song-edit',		moduleId: './find-songs/edit',		title: 'Edit Find Song' }
+			{ route: 'find-songs/:id',		name: 'find-song-edit',		moduleId: './find-songs/edit',		title: 'Edit Find Song' },
+
+			{ route: 'duel-themes',			name: 'duel-themes',		moduleId: './duel-themes/list',		title: 'Duel Themes',	nav: true },
+			{ route: 'duel-themes/create',	name: 'duel-theme-create',	moduleId: './duel-themes/edit',		title: 'Create Duel Theme' },
+			{ route: 'duel-themes/:id',		name: 'duel-theme-edit',	moduleId: './duel-themes/edit',		title: 'Edit Duel Theme' }
 
 		]);
 

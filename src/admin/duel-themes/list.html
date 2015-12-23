@@ -1,0 +1,22 @@
+<template>
+	<div class="duel-theme-list">
+		<div class="controls">
+			<input value.bind="search" type="text" class="search" placeholder="Search" change.bind="filter(search)" />
+			<a class="new btn btn-primary" route-href="route: duel-theme-create">New</a>
+		</div>
+		<table class="table-striped">
+			<thead>
+				<tr>
+					<th>Theme</th>
+					<th>Difficulty</th>
+				</tr>
+			</thead>
+			<tbody class="table-hover">
+				<tr repeat.for="duelTheme of filteredDuelThemes" click.delegate="router.navigateToRoute('duel-theme-edit', { id: duelTheme._id })">
+					<td>${duelTheme.theme}</td>
+					<td>${duelTheme.difficulty}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</template>
