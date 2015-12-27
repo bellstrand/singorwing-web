@@ -7,11 +7,11 @@ import {shuffle} from '../utils/shuffle';
 @inject(HttpClient, Router, EventAggregator)
 export class Duel {
 	constructor(http, router, eventAggregator) {
+		this.router = router;
+		this.eventAggregator = eventAggregator;
 		http.fetch('duel-themes').then(response => response.json()).then(duelThemes => {
 			this.init(duelThemes);
 		}).catch(() => {});
-		this.router = router;
-		this.eventAggregator = eventAggregator;
 	}
 
 	init(duelThemes) {

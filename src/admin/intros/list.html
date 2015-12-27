@@ -1,0 +1,24 @@
+<template>
+	<div class="intro-list">
+		<div class="controls">
+			<input value.bind="search" type="text" class="search" placeholder="Search" change.bind="filter(search)" />
+			<a class="new btn btn-primary" route-href="route: intro-create">New</a>
+		</div>
+		<table class="table-striped">
+			<thead>
+				<tr>
+					<th>Song</th>
+					<th>Length</th>
+					<th>Difficulty</th>
+				</tr>
+			</thead>
+			<tbody class="table-hover">
+				<tr repeat.for="intro of filteredIntros" click.delegate="router.navigateToRoute('intro-edit', { id: intro._id })">
+					<td>${intro.song.name}</td>
+					<td>${intro.end - intro.start}s</td>
+					<td>${intro.difficulty}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</template>

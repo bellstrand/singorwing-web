@@ -3,8 +3,8 @@ import {HttpClient, json} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
 
 @inject(HttpClient, Router)
-export class DuelThemeEdit {
-	duelTheme = {};
+export class IntroEdit {
+	intro = {};
 
 	constructor(http, router) {
 		this.http = http;
@@ -12,36 +12,39 @@ export class DuelThemeEdit {
 	}
 
 	activate(params) {
+		this.http.fetch('songs').then(response => response.json()).then(songs => {
+			this.songs = songs;
+		}).catch(() => {});
 		if(params.id) {
-			this.http.fetch('duel-themes/' + params.id).then(response => response.json()).then(duelTheme => {
-				this.duelTheme = duelTheme;
+			this.http.fetch('intros/' + params.id).then(response => response.json()).then(intro => {
+				this.intro = intro;
 			}).catch(() => {});
 		}
 	}
 
 	create() {
-		this.http.fetch('duel-themes', {
+		this.http.fetch('intros', {
 			method: 'post',
-			body: json(this.duelTheme)
+			body: json(this.intro)
 		}).then(response => response.json()).then(() => {
-			this.router.navigateToRoute('duel-themes');
+			this.router.navigateToRoute('intros');
 		}).catch(() => {});
 	}
 
 	update() {
-		this.http.fetch('duel-themes/' + this.duelTheme._id, {
+		this.http.fetch('intros/' + this.intro._id, {
 			method: 'put',
-			body: json(this.duelTheme)
+			body: json(this.intro)
 		}).then(response => response.json()).then(() => {
-			this.router.navigateToRoute('duel-themes');
+			this.router.navigateToRoute('intros');
 		}).catch(() => {});
 	}
 
 	destroy() {
-		this.http.fetch('duel-themes/' + this.duelTheme._id, {
+		this.http.fetch('intros/' + this.intro._id, {
 			method: 'delete'
 		}).then(response => response.json()).then(() => {
-			this.router.navigateToRoute('duel-themes');
+			this.router.navigateToRoute('intros');
 		}).catch(() => {});
 	}
 }

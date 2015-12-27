@@ -6,11 +6,11 @@ import {EventAggregator} from 'aurelia-event-aggregator';
 @inject(HttpClient, Router, EventAggregator)
 export class FindSong {
 	constructor(http, router, eventAggregator) {
+		this.router = router;
+		this.eventAggregator = eventAggregator;
 		http.fetch('find-songs').then(response => response.json()).then(findSongs => {
 			this.init(findSongs);
 		}).catch(() => {});
-		this.router = router;
-		this.eventAggregator = eventAggregator;
 	}
 
 	init(findSongs) {

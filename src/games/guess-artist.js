@@ -7,11 +7,11 @@ import {shuffle} from '../utils/shuffle';
 @inject(HttpClient, Router, EventAggregator)
 export class GuessArtist {
 	constructor(http, router, eventAggregator) {
+		this.router = router;
+		this.eventAggregator = eventAggregator;
 		http.fetch('artists').then(response => response.json()).then(artists => {
 			this.init(artists);
 		}).catch(() => {});
-		this.router = router;
-		this.eventAggregator = eventAggregator;
 	}
 
 	init(artists) {
