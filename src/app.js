@@ -5,7 +5,7 @@ import {Base64Utils} from './utils/base64-utils';
 
 @inject(HttpClient, Events, Base64Utils)
 export class App {
-	constructor(http, base64Utils) {
+	constructor(http, events, base64Utils) {
 		http.configure(config => {
 			config.withBaseUrl('http://' + location.hostname + ':' + location.port + '/api/');
 			config.withDefaults({
