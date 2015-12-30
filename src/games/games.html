@@ -5,4 +5,8 @@
 			<a repeat.for="row of router.navigation" href.bind="row.href">${row.title}</a>
 		</nav>
 	</div>
+	<div class="clearfix"></div>
+	<div class="settings">
+		<a click.delegate="reset()" class="pointer">Reset</a>
+	</div>
 </template>
