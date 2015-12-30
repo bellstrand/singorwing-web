@@ -33,10 +33,13 @@ export class Intros {
 
 	loadAndPlayVideo() {
 		this.title = '';
+		console.log(this.song.intro.end);
+		console.log(this.song.intro.end | 999);
+		console.log(this.song.intro.end || 999);
 		this.player.loadVideoByUrl({
 			mediaContentUrl: 'https://www.youtube.com/v/' + this.song.intro.videoId,
-			startSeconds: this.song.intro.start | 0,
-			endSeconds: this.song.intro.end | 999,
+			startSeconds: this.song.intro.start || 0,
+			endSeconds: this.song.intro.end || 999,
 			suggestedQuality: 'default'
 		});
 	}
@@ -53,7 +56,7 @@ export class Intros {
 
 	playChorus() {
 		this.title = this.song.artist.name + ' - ' + this.song.name;
-		this.player.seekTo(this.song.intro.chorus | 0);
+		this.player.seekTo(this.song.intro.chorus || 0);
 		this.player.playVideo();
 	}
 
