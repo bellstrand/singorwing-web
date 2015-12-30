@@ -23,6 +23,7 @@ export class SongEdit {
 		if(params.id) {
 			this.http.fetch('songs/' + params.id).then(response => response.json()).then(song => {
 				this.song = song;
+				this.intro = this.song.intro;
 			}).catch(() => {});
 		}
 	}
@@ -41,6 +42,15 @@ export class SongEdit {
 
 	removeDistortion(distortion) {
 		this.song.distortions.splice(this.song.distortions.indexOf(distortion), 1);
+	}
+
+	addIntro() {
+		this.intro = {};
+		this.song.intro = this.intro;
+	}
+
+	removeIntro() {
+		this.song.intro = null;
 	}
 
 	create() {

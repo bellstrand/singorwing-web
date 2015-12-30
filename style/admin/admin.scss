@@ -62,5 +62,45 @@
 				width: 38px;
 			}
 		}
+
+		.intro {
+			h4 {
+				margin: 0;
+				line-height: 34px;
+				float: left;
+			}
+			.add, .remove {
+				float: left;
+				margin: 0 10px;
+			}
+			.clearfix {
+				height: 10px;
+			}
+			.intro-container .form-group {
+				&:nth-child(1) {
+					width: calc(80% - 10px);
+					float: left;
+				}
+				&:nth-child(2) {
+					width: calc(20% - 10px);
+					float: right;
+				}
+				&:nth-child(4) {
+					width: calc(33.33333% - 13.333334px);
+					float: left;
+					margin-right: 10px;
+				}
+				&:nth-child(5) {
+					width: calc(33.33333% - 13.333334px);
+					float: left;
+					margin: 0 10px;
+				}
+				&:nth-child(6) {
+					width: calc(33.33333% - 13.333334px);
+					float: right;
+					margin-left: 10px;
+				}
+			}
+		}
 	}
 }
