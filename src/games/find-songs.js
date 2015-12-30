@@ -8,15 +8,15 @@ export class FindSong {
 	constructor(http, router, eventAggregator) {
 		this.router = router;
 		this.eventAggregator = eventAggregator;
-		http.fetch('find-songs').then(response => response.json()).then(findSongs => {
-			this.init(findSongs);
+		http.fetch('songs/find-songs').then(response => response.json()).then(songs => {
+			this.init(songs);
 		}).catch(() => {});
 	}
 
-	init(findSongs) {
+	init(songs) {
 		this.index = 0;
-		this.findSongs = findSongs;
-		this.findSong = this.findSongs[this.index];
+		this.songs = songs;
+		this.findSong = this.getFindSong();
 		this.generateRivets();
 		this.logInfo();
 		this.unsubscribe = this.eventAggregator.subscribe('keydown', event => this.keydown(event.keyCode));
@@ -38,6 +38,10 @@ export class FindSong {
 		}
 	}
 
+	getFindSong() {
+		return this.songs[this.index].findSongs[Math.floor(Math.random() * this.songs[this.index].findSongs.length)];
+	}
+
 	generateRivets() {
 		this.rivets = [];
 		let phraseLength = this.findSong.phrase.split(' ').length;
@@ -53,21 +57,21 @@ export class FindSong {
 	}
 
 	next() {
-		this.index = this.index !== this.findSongs.length - 1 ? this.index + 1 : 0;
-		this.findSong = this.findSongs[this.index];
+		this.index = this.index !== this.songs.length - 1 ? this.index + 1 : 0;
+		this.findSong = this.getFindSong();
 		this.generateRivets();
 		this.logInfo();
 	}
 
 	previous() {
-		this.index = this.index !== 0 ? this.index - 1 : this.findSongs.length - 1;
-		this.findSong = this.findSongs[this.index];
+		this.index = this.index !== 0 ? this.index - 1 : this.songs.length - 1;
+		this.findSong = this.getFindSong();
 		this.generateRivets();
 		this.logInfo();
 	}
 
 	logInfo() {
-		console.log('Song: ' + this.findSong.song.name);
+		console.log('Song: ' + this.songs[this.index].name);
 		console.log('Phrase: ' + this.findSong.phrase);
 		console.log(' ');
 	}

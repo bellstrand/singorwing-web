@@ -18,30 +18,25 @@ export class Intros {
 	attached() {
 		this.player = youTubePlayer('player');
 		this.player.setVolume(100);
-		this.http.fetch('intros').then(response => response.json()).then(intros => {
-			this.init(intros);
+		this.http.fetch('songs/intros').then(response => response.json()).then(songs => {
+			this.init(songs);
 		}).catch(() => {});
 	}
 
-	init(intros) {
+	init(songs) {
 		this.index = 0;
-		this.intros = shuffle(intros);
-		this.intro = this.intros[this.index];
+		this.songs = shuffle(songs);
+		this.song = this.songs[this.index];
 		this.loadAndPlayVideo();
 		this.unsubscribe = this.eventAggregator.subscribe('keydown', event => this.keydown(event.keyCode));
 	}
 
 	loadAndPlayVideo() {
 		this.title = '';
-		this.http.fetch('artists/' + this.intro.song.artist).then(response => response.json()).then(artist => {
-			this.artist = artist;
-		}).catch(() => {
-			this.artist = {};
-		});
 		this.player.loadVideoByUrl({
-			mediaContentUrl: 'https://www.youtube.com/v/' + this.intro.videoId,
-			startSeconds: this.intro.start,
-			endSeconds: this.intro.end,
+			mediaContentUrl: 'https://www.youtube.com/v/' + this.song.intro.videoId,
+			startSeconds: this.song.intro.start | 0,
+			endSeconds: this.song.intro.end | 999,
 			suggestedQuality: 'default'
 		});
 	}
@@ -57,8 +52,8 @@ export class Intros {
 	}
 
 	playChorus() {
-		this.title = this.artist.name + ' - ' + this.intro.song.name;
-		this.player.seekTo(this.intro.chorus);
+		this.title = this.song.artist.name + ' - ' + this.song.name;
+		this.player.seekTo(this.song.intro.chorus | 0);
 		this.player.playVideo();
 	}
 
@@ -77,14 +72,14 @@ export class Intros {
 	}
 
 	next() {
-		this.index = this.index !== this.intros.length - 1 ? this.index + 1 : 0;
-		this.intro = this.intros[this.index];
+		this.index = this.index !== this.songs.length - 1 ? this.index + 1 : 0;
+		this.song = this.songs[this.index];
 		this.loadAndPlayVideo();
 	}
 
 	previous() {
-		this.index = this.index !== 0 ? this.index - 1 : this.intros.length - 1;
-		this.intro = this.intros[this.index];
+		this.index = this.index !== 0 ? this.index - 1 : this.songs.length - 1;
+		this.song = this.songs[this.index];
 		this.loadAndPlayVideo();
 	}
 
