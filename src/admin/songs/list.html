@@ -24,7 +24,7 @@
 					<td>${song.released}</td>
 					<td>${song.distortions.length || ''}</td>
 					<td>${song.findSongs.length || ''}</td>
-					<td>${song.intro ? 'X' : ''}</td>
+					<td>${song.intro ? (song.intro.end - song.intro.start || '~') + 's' : ''}</td>
 				</tr>
 			</tbody>
 		</table>
