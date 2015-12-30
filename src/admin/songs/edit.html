@@ -61,6 +61,26 @@
 				</div>
 			</div>
 
+			<div class="findSongs form-group">
+				<h4>Find Songs</h4>
+				<a class="add btn btn-primary" click.delegate="addFindSong()">Add</a>
+				<div class="clearfix"></div>
+				<div class="findSong" repeat.for="findSong of song.findSongs">
+					<div class="form-group">
+						<label>Distortion</label>
+						<input value.bind="findSong.phrase" type="text" />
+					</div>
+					<div class="form-group">
+						<label>Difficulty</label>
+						<select value.bind="findSong.difficulty">
+							<option repeat.for="difficulty of difficulties">${difficulty}</option>
+						</select>
+					</div>
+					<a click.delegate="removeFindSong(findSong)" class="btn btn-warning fa fa-trash"></a>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+
 			<div class="intro form-group">
 				<h4>Intro</h4>
 				<a if.bind="!song.intro" class="add btn btn-primary" click.delegate="addIntro()">Add</a>

@@ -44,6 +44,14 @@ export class SongEdit {
 		this.song.distortions.splice(this.song.distortions.indexOf(distortion), 1);
 	}
 
+	addFindSong() {
+		this.song.findSongs.push({});
+	}
+
+	removeFindSong(findSong) {
+		this.song.findSongs.splice(this.song.findSongs.indexOf(findSong), 1);
+	}
+
 	addIntro() {
 		this.intro = {};
 		this.song.intro = this.intro;

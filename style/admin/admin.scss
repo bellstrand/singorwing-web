@@ -32,19 +32,26 @@
 	}
 
 	.song-edit {
-		.distortions {
+		.distortions, .findSongs, .intro {
 			h4 {
 				margin: 0;
 				line-height: 34px;
 				float: left;
 			}
-			.add {
+			.add, .remove {
 				margin: 0 10px;
 				float: left;
 			}
 			.clearfix {
 				height: 10px;
 			}
+		}
+
+		.distortions {
+			padding-top: 20px;
+		}
+
+		.distortions, .findSongs {
 			.form-group {
 				float: left;
 				&:nth-child(1) {
@@ -64,18 +71,6 @@
 		}
 
 		.intro {
-			h4 {
-				margin: 0;
-				line-height: 34px;
-				float: left;
-			}
-			.add, .remove {
-				float: left;
-				margin: 0 10px;
-			}
-			.clearfix {
-				height: 10px;
-			}
 			.intro-container .form-group {
 				&:nth-child(1) {
 					width: calc(80% - 10px);
