@@ -15,17 +15,9 @@ export class Admin {
 			{ route: 'songs/create',		name: 'song-create',		moduleId: './songs/edit',			title: 'Create Song' },
 			{ route: 'songs/:id',			name: 'song-edit',			moduleId: './songs/edit',			title: 'Edit Song' },
 
-			{ route: 'find-songs',			name: 'find-songs',			moduleId: './find-songs/list',		title: 'Find Songs',	 	nav: true },
-			{ route: 'find-songs/create',	name: 'find-song-create',	moduleId: './find-songs/edit',		title: 'Create Find Song' },
-			{ route: 'find-songs/:id',		name: 'find-song-edit',		moduleId: './find-songs/edit',		title: 'Edit Find Song' },
-
 			{ route: 'duel-themes',			name: 'duel-themes',		moduleId: './duel-themes/list',		title: 'Duel Themes',		nav: true },
 			{ route: 'duel-themes/create',	name: 'duel-theme-create',	moduleId: './duel-themes/edit',		title: 'Create Duel Theme' },
-			{ route: 'duel-themes/:id',		name: 'duel-theme-edit',	moduleId: './duel-themes/edit',		title: 'Edit Duel Theme' },
-
-			{ route: 'intros',				name: 'intros',				moduleId: './intros/list',			title: 'Intros',			nav: true },
-			{ route: 'intros/create',		name: 'intro-create',		moduleId: './intros/edit',			title: 'Create Intro' },
-			{ route: 'intros/:id',			name: 'intro-edit',			moduleId: './intros/edit',			title: 'Edit Intro' }
+			{ route: 'duel-themes/:id',		name: 'duel-theme-edit',	moduleId: './duel-themes/edit',		title: 'Edit Duel Theme' }
 		]);
 
 		this.router = router;
