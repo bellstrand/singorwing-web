@@ -4,9 +4,12 @@ import {Router} from 'aurelia-router';
 
 @inject(HttpClient, Router)
 export class SongEdit {
-	song = {};
+	song = {
+		distortions: []
+	};
 	artists = [];
 	genres = ['anime', 'blues/jass', 'comedy', 'country', 'dance', 'disney', 'folk', 'hard rock', 'hip-hop/rap', 'metal', 'pop', 'punk', 'reggae', 'rock', 'world'];
+	difficulties = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 	constructor(http, router) {
 		this.http = http;
@@ -30,6 +33,14 @@ export class SongEdit {
 				this.song.genre = artist.genre;
 			}
 		});
+	}
+
+	addDistortion() {
+		this.song.distortions.push({});
+	}
+
+	removeDistortion(distortion) {
+		this.song.distortions.splice(this.song.distortions.indexOf(distortion), 1);
 	}
 
 	create() {

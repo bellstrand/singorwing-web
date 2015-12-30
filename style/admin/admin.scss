@@ -30,4 +30,37 @@
 			margin-left: 10px;
 		}
 	}
+
+	.song-edit {
+		.distortions {
+			h4 {
+				margin: 0;
+				line-height: 34px;
+				float: left;
+			}
+			.add {
+				margin: 0 10px;
+				float: left;
+			}
+			.clearfix {
+				height: 10px;
+			}
+			.form-group {
+				float: left;
+				&:nth-child(1) {
+					width: calc(75% - 39px);
+					margin-right: 10px;
+				}
+				&:nth-child(2) {
+					width: calc(25% - 39px);
+					margin: 0 10px;
+				}
+			}
+			.fa-trash {
+				float: right;
+				margin-top: 18px;
+				width: 38px;
+			}
+		}
+	}
 }

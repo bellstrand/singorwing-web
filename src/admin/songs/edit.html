@@ -41,6 +41,26 @@
 				<textarea value.bind="song.lyrics" rows="10" id="lyrics"></textarea>
 			</div>
 
+			<div class="distortions form-group">
+				<h4>Distortions</h4>
+				<a class="add btn btn-primary" click.delegate="addDistortion()">Add</a>
+				<div class="clearfix"></div>
+				<div class="distortion" repeat.for="distortion of song.distortions">
+					<div class="form-group">
+						<label>Distortion</label>
+						<input value.bind="distortion.distortion" type="text" />
+					</div>
+					<div class="form-group">
+						<label>Difficulty</label>
+						<select value.bind="distortion.difficulty">
+							<option repeat.for="difficulty of difficulties">${difficulty}</option>
+						</select>
+					</div>
+					<a click.delegate="removeDistortion(distortion)" class="btn btn-warning fa fa-trash"></a>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+
 			<div class="form-group">
 				<button if.bind="!song._id" click.delegate="create()" class="btn btn-block btn-success create">Create</button>
 				<button if.bind="song._id" click.delegate="update()" class="btn btn-success btn-left update">Update</button>

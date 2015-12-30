@@ -1,6 +1,5 @@
 export class Admin {
 	configureRouter(config, router) {
-		config.title = 'Admin';
 		config.map([
 			{ route: '', redirect: 'users' },
 
