@@ -32,15 +32,15 @@ export class App {
 		config.map([
 			{ route: '',					name: 'home',				moduleId: 'home' },
 			{ route: 'games',				name: 'games',				moduleId: 'games/games' },
-			{ route: 'find-songs',			name: 'find-songs',			moduleId: 'games/find-songs',		nav: true,	title: 'Find the Song' },
-			{ route: 'guess-artist',		name: 'guess-artist',		moduleId: 'games/guess-artist',		nav: true,	title: 'Guess the Artist' },
-			{ route: 'intros',				name: 'intros',			moduleId: 'games/intros',			nav: true,	title: 'Intros' },
-			{ route: 'duel',				name: 'duel',				moduleId: 'games/duel',				nav: true,	title: 'Duel' },
-			//{ route: 'title-scramble',	name: 'title-scramble',		moduleId: 'games/title-scramble',	nav: true,	title: 'Title Scramble' },
-			//{ route: 'picture-question',	name: 'picture-question',	moduleId: 'games/picture-question',	nav: true,	title: 'Picture Question' },
-			//{ route: 'title-distortion',	name: 'title-distortion',	moduleId: 'games/title-distortion',	nav: true,	title: 'Title Distortion' },
-			//{ route: 'picture-chain',		name: 'picture-chain',		moduleId: 'games/picture-chain',	nav: true,	title: 'Picture Chain' },
-			{ route: 'admin',				name: 'admin',				moduleId: 'admin/admin',			title: 'Admin' }
+			{ route: 'find-songs',			name: 'find-songs',			moduleId: 'games/find-songs',			nav: true,	title: 'Find the Song' },
+			{ route: 'guess-artist',		name: 'guess-artist',		moduleId: 'games/guess-artist',			nav: true,	title: 'Guess the Artist' },
+			{ route: 'intros',				name: 'intros',				moduleId: 'games/intros',				nav: true,	title: 'Intros' },
+			{ route: 'duel',				name: 'duel',				moduleId: 'games/duel',					nav: true,	title: 'Duel' },
+			{ route: 'title-distortions',	name: 'title-distortions',	moduleId: 'games/title-distortions',	nav: true,	title: 'Title Distortion' },
+			//{ route: 'title-scramble',	name: 'title-scramble',		moduleId: 'games/title-scramble',		nav: true,	title: 'Title Scramble' },
+			//{ route: 'picture-question',	name: 'picture-question',	moduleId: 'games/picture-question',		nav: true,	title: 'Picture Question' },
+			//{ route: 'picture-chain',		name: 'picture-chain',		moduleId: 'games/picture-chain',		nav: true,	title: 'Picture Chain' },
+			{ route: 'admin',				name: 'admin',				moduleId: 'admin/admin',							title: 'Admin' }
 		]);
 		config.mapUnknownRoutes(() => {
 			router.navigateToRoute('home');

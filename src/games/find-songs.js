@@ -1,4 +1,4 @@
-import {inject} from 'aurelia-framework';
+import {inject, LogManager} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
 import {EventAggregator} from 'aurelia-event-aggregator';
@@ -8,6 +8,7 @@ export class FindSong {
 	constructor(http, router, eventAggregator) {
 		this.router = router;
 		this.eventAggregator = eventAggregator;
+		this.logger = LogManager.getLogger('FindSong');
 		http.fetch('songs/find-songs').then(response => response.json()).then(songs => {
 			this.init(songs);
 		}).catch(() => {});
@@ -20,6 +21,10 @@ export class FindSong {
 		this.generateRivets();
 		this.logInfo();
 		this.unsubscribe = this.eventAggregator.subscribe('keydown', event => this.keydown(event.keyCode));
+	}
+
+	detached() {
+		this.unsubscribe.dispose();
 	}
 
 	keydown(keyCode) {
@@ -71,9 +76,10 @@ export class FindSong {
 	}
 
 	logInfo() {
-		console.log('Song: ' + this.songs[this.index].name);
-		console.log('Phrase: ' + this.findSong.phrase);
-		console.log(' ');
+		this.logger.info('Artist: ' + this.songs[this.index].artist.name);
+		this.logger.info('Song: ' + this.songs[this.index].name);
+		this.logger.info('Phrase: ' + this.findSong.phrase);
+		this.logger.info('');
 	}
 
 	quit() {

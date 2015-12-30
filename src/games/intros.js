@@ -1,4 +1,4 @@
-import {inject} from 'aurelia-framework';
+import {inject, LogManager} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
 import {EventAggregator} from 'aurelia-event-aggregator';
@@ -13,6 +13,7 @@ export class Intros {
 		this.http = http;
 		this.router = router;
 		this.eventAggregator = eventAggregator;
+		this.logger = LogManager.getLogger('Intros');
 	}
 
 	attached() {
@@ -33,15 +34,16 @@ export class Intros {
 
 	loadAndPlayVideo() {
 		this.title = '';
-		console.log(this.song.intro.end);
-		console.log(this.song.intro.end | 999);
-		console.log(this.song.intro.end || 999);
 		this.player.loadVideoByUrl({
 			mediaContentUrl: 'https://www.youtube.com/v/' + this.song.intro.videoId,
 			startSeconds: this.song.intro.start || 0,
 			endSeconds: this.song.intro.end || 999,
 			suggestedQuality: 'default'
 		});
+		this.logger.info('Artist: ' + this.song.artist.name);
+		this.logger.info('Song: ' + this.song.name);
+		this.logger.info('Start: ' + this.song.intro.start + ', End: ' + this.song.intro.end + ', Chorus: ' + this.song.intro.chorus);
+		this.logger.info('');
 	}
 
 	playPause() {
