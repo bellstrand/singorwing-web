@@ -5,7 +5,8 @@ import {Router} from 'aurelia-router';
 @inject(HttpClient, Router)
 export class SongEdit {
 	song = {
-		distortions: []
+		distortions: [],
+		findSongs: []
 	};
 	artists = [];
 	genres = ['anime', 'blues/jass', 'comedy', 'country', 'dance', 'disney', 'folk', 'hard rock', 'hip-hop/rap', 'metal', 'pop', 'punk', 'reggae', 'rock', 'world'];
