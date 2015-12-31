@@ -9,7 +9,7 @@ export class SongEdit {
 		findSongs: []
 	};
 	artists = [];
-	genres = ['anime', 'blues/jass', 'comedy', 'country', 'dance', 'disney', 'folk', 'hard rock', 'hip-hop/rap', 'metal', 'pop', 'punk', 'reggae', 'rock', 'world'];
+	genres = ['anime', 'blues/jazz', 'comedy', 'country', 'dance', 'disney', 'folk', 'hard rock', 'hip-hop/rap', 'metal', 'pop', 'punk', 'reggae', 'rock', 'world'];
 	difficulties = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 	constructor(http, router) {
