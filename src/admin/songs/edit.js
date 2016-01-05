@@ -25,6 +25,15 @@ export class SongEdit {
 			this.http.fetch('songs/' + params.id).then(response => response.json()).then(song => {
 				this.song = song;
 				this.intro = this.song.intro;
+				this.song.distortions.forEach(distortion => {
+					distortion.difficulty = distortion.difficulty.toString();
+				});
+				this.song.findSongs.forEach(findSong => {
+					findSong.difficulty = findSong.difficulty.toString();
+				});
+				if(this.intro && this.intro.difficulty) {
+					this.intro.difficulty = this.intro.difficulty.toString();
+				}
 			}).catch(() => {});
 		}
 	}
