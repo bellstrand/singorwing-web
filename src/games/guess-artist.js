@@ -9,7 +9,7 @@ export class GuessArtist {
 	constructor(http, router, eventAggregator) {
 		this.router = router;
 		this.eventAggregator = eventAggregator;
-		http.fetch('artists').then(response => response.json()).then(artists => {
+		http.fetch('artists?maxDifficulty=9').then(response => response.json()).then(artists => {
 			this.init(artists);
 		}).catch(() => {});
 	}
