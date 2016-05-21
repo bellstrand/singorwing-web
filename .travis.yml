@@ -8,6 +8,9 @@ node_js:
 services:
   - docker
 
+before_script:
+  - jspm install
+
 script:
   - gulp lint
   - gulp export
