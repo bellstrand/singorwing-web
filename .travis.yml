@@ -1,0 +1,29 @@
+sudo: required
+
+language: node_js
+
+node_js:
+  - "6"
+
+services:
+  - docker
+
+script:
+  - gulp lint
+  - gulp export
+
+after_success:
+  - export PR=https://api.github.com/repos/$TRAVIS_REPO_SLUG/pulls/$TRAVIS_PULL_REQUEST
+  - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo `curl -s $PR | jq -r .head.ref`; fi)
+  - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$PR, BRANCH=$BRANCH"
+
+  - if [ "$BRANCH" == "master" ] && [ -n "TRAVIS_TAG" ]; then
+    docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    export REPO=bellstrand/singorwing-web;
+    docker build -f Dockerfile -t $REPO:TRAVIS_TAG .;
+    docker tag $REPO:TRAVIS_TAG $REPO:$latest;
+    docker push $REPO;
+    fi
+
+notifications:
+  email: false
