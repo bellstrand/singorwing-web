@@ -9,5 +9,6 @@ module.exports = {
 	sass: 'style/**/*.scss',
 	styleScss: 'style/style.scss',
 	style: 'dist/style.css',
-	output: 'dist/'
+	output: 'dist/',
+	export: 'export/'
 };
