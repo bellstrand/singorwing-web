@@ -17,16 +17,16 @@ gulp.task('build-js', ['lint'], () => {
 		.pipe(plumber({
 			errorHandler: notify.onError('Error: <%= error.message %>')
 		}))
-		.pipe(changed(paths.output, {extensions: '.js'}))
-		.pipe(sourcemaps.init({loadMaps: true}))
-		.pipe(babel(Object.assign({}, compilerOptions)))
+		.pipe(changed(paths.output, { extensions: '.js' }))
+		.pipe(sourcemaps.init({ loadMaps: true }))
+		.pipe(babel(Object.assign({}, compilerOptions.system())))
 		.pipe(sourcemaps.write('maps'))
 		.pipe(gulp.dest(paths.output));
 });
 
 gulp.task('build-html', () => {
 	return gulp.src(paths.html)
-		.pipe(changed(paths.output, {extension: '.html'}))
+		.pipe(changed(paths.output, { extension: '.html' }))
 		.pipe(gulp.dest(paths.output));
 });
 

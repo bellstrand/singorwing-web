@@ -7,7 +7,7 @@ let gulp = require('gulp'),
 
 gulp.task('lint', () => {
 	return gulp.src(paths.src)
-		.pipe(changed(paths.output, {extensions: '.js'}))
+		.pipe(changed(paths.output, { extensions: '.js' }))
 		.pipe(eslint())
 		.pipe(eslint.format());
 });

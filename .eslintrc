@@ -4,8 +4,16 @@
 		"indent": [2, "tab", {
 			"SwitchCase": 1
 		}],
-		"space-after-keywords": 0,
 		"one-var": 0,
-		"default-case": 0
+		"default-case": 0,
+		"keyword-spacing": [
+			"error",
+			"overrides": {
+				"if": { "after": false },
+				"for": { "after": false },
+				"while": { "after": false },
+				"switch": { "after": false }
+			}
+		]
 	}
 }
