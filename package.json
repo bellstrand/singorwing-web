@@ -8,14 +8,15 @@
   ],
   "homepage": "",
   "bugs": {
-    "url": "https://github.com/singorwing/web/issues"
+    "url": "https://github.com/bellstrand/singorwing-web/issues"
   },
   "license": "SEE LICENSE IN LICENSE.md",
   "author": "Magnus Bellstrand <bellstrand@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/singorwing/web"
+    "url": "git+https://github.com/bellstrand/singorwing-web.git"
   },
+  "homepage": "https://github.com/bellstrand/singorwing-web",
   "devDependencies": {
     "aurelia-bundler": "^0.4.0",
     "aurelia-tools": "^0.2.0",
