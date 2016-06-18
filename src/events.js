@@ -13,7 +13,7 @@ export class Events {
 	keydown(event) {
 		switch(event.keyCode) {
 			case 70:
-				this.toggleFullscreen();
+				this.toggleFullscreen(event);
 				break;
 			default:
 				this.eventAggregator.publish('keydown', event);
@@ -21,8 +21,8 @@ export class Events {
 		}
 	}
 
-	toggleFullscreen() {
-		if(this.router.currentInstruction.config.name !== 'admin') {
+	toggleFullscreen(event) {
+		if(['input', 'textarea'].indexOf(event.target.localName) === -1) {
 			if(!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
 				let elem = document.querySelector('body');
 				if(elem.requestFullscreen) {
