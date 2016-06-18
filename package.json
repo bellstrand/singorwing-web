@@ -6,7 +6,7 @@
     "sing",
     "wing"
   ],
-  "homepage": "",
+  "homepage": "https://github.com/bellstrand/singorwing-web",
   "bugs": {
     "url": "https://github.com/bellstrand/singorwing-web/issues"
   },
@@ -16,7 +16,6 @@
     "type": "git",
     "url": "git+https://github.com/bellstrand/singorwing-web.git"
   },
-  "homepage": "https://github.com/bellstrand/singorwing-web",
   "devDependencies": {
     "aurelia-bundler": "^0.4.0",
     "aurelia-tools": "^0.2.0",
@@ -49,21 +48,21 @@
   },
   "jspm": {
     "dependencies": {
-      "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0-beta.1.2.1",
-      "aurelia-event-aggregator": "npm:aurelia-event-aggregator@^1.0.0-beta.1.2.1",
-      "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.0-beta.1.2.5",
-      "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.1.2.5",
-      "aurelia-history-browser": "npm:aurelia-history-browser@^1.0.0-beta.1.2.1",
-      "aurelia-loader-default": "npm:aurelia-loader-default@^1.0.0-beta.1.2.2",
-      "aurelia-logging-console": "npm:aurelia-logging-console@^1.0.0-beta.1.2.1",
-      "aurelia-pal-browser": "npm:aurelia-pal-browser@^1.0.0-beta.1.2.1",
-      "aurelia-polyfills": "npm:aurelia-polyfills@^1.0.0-beta.1.1.4",
-      "aurelia-router": "npm:aurelia-router@^1.0.0-beta.1.2.3",
-      "aurelia-templating-binding": "npm:aurelia-templating-binding@^1.0.0-beta.1.2.4",
-      "aurelia-templating-resources": "npm:aurelia-templating-resources@^1.0.0-beta.1.2.6",
-      "aurelia-templating-router": "npm:aurelia-templating-router@^1.0.0-beta.1.2.1",
+      "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0-beta.2.0.1",
+      "aurelia-event-aggregator": "npm:aurelia-event-aggregator@^1.0.0-beta.2.0.1",
+      "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.0-beta.2.0.1",
+      "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.2.0.1",
+      "aurelia-history-browser": "npm:aurelia-history-browser@^1.0.0-beta.2.0.1",
+      "aurelia-loader-default": "npm:aurelia-loader-default@^1.0.0-beta.2.0.1",
+      "aurelia-logging-console": "npm:aurelia-logging-console@^1.0.0-beta.2.0.1",
+      "aurelia-pal-browser": "npm:aurelia-pal-browser@^1.0.0-beta.3.0.1",
+      "aurelia-polyfills": "npm:aurelia-polyfills@^1.0.0-beta.2.0.1",
+      "aurelia-router": "npm:aurelia-router@^1.0.0-beta.2.0.1",
+      "aurelia-templating-binding": "npm:aurelia-templating-binding@^1.0.0-beta.2.0.2",
+      "aurelia-templating-resources": "npm:aurelia-templating-resources@^1.0.0-beta.3.0.4",
+      "aurelia-templating-router": "npm:aurelia-templating-router@^1.0.0-beta.2.0.2",
       "fetch": "github:github/fetch@^1.0.0",
-      "font-awesome": "npm:font-awesome@^4.6.1",
+      "font-awesome": "npm:font-awesome@^4.6.3",
       "text": "github:systemjs/plugin-text@^0.0.8",
       "youtube-player": "npm:youtube-player@^3.0.4"
     },
