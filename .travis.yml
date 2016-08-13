@@ -19,7 +19,7 @@ after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
     export REPO=bellstrand/singorwing-web;
-    docker build -f Dockerfile -t $REPO:latest;
+    docker build -f Dockerfile -t $REPO:latest .;
     docker push $REPO;
     fi
 
