@@ -1,6 +1,5 @@
 FROM nginx
 
-COPY images /usr/share/nginx/html/images
 COPY node_modules/font-awesome/fonts /usr/share/nginx/html/node_modules/font-awesome/fonts
 COPY scripts /usr/share/nginx/html/scripts
 COPY index.html /usr/share/nginx/html/index.html
