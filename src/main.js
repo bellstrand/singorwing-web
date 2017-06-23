@@ -7,10 +7,9 @@ Promise.config({
 	warnings: false
 });
 
-if(environment.debug) {
-	LogManager.addAppender(new ConsoleAppender());
-	LogManager.setLevel(LogManager.logLevel.debug);
-}
+LogManager.addAppender(new ConsoleAppender());
+LogManager.setLevel(environment.debug ? LogManager.logLevel.debug : LogManager.logLevel.info);
+
 
 export function configure(aurelia) {
 	aurelia.use
