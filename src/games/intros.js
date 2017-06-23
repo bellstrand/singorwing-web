@@ -3,7 +3,6 @@ import {HttpClient} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
 import {EventAggregator} from 'aurelia-event-aggregator';
 import {shuffle} from '../utils/shuffle';
-import youTubePlayer from 'youtube-player';
 
 @inject(HttpClient, Router, EventAggregator)
 export class Intros {
@@ -17,8 +16,6 @@ export class Intros {
 	}
 
 	attached() {
-		this.player = youTubePlayer('player');
-		this.player.setVolume(100);
 		this.http.fetch('songs/intros').then(response => response.json()).then(songs => {
 			this.init(songs);
 		}).catch(() => {});
@@ -28,18 +25,32 @@ export class Intros {
 		this.index = 0;
 		this.songs = shuffle(songs);
 		this.song = this.songs[this.index];
-		this.loadAndPlayVideo();
-		this.unsubscribe = this.eventAggregator.subscribe('keydown', event => this.keydown(event.keyCode));
+		this.player = new YT.Player('player', {
+			events: {
+				onReady: () => {
+					this.player.setVolume(100);
+					this.loadAndPlayVideo();
+					this.unsubscribe = this.eventAggregator.subscribe('keydown', event => this.keydown(event.keyCode));
+				}
+			}
+		});
 	}
 
 	loadAndPlayVideo() {
 		this.title = '';
-		this.player.loadVideoByUrl({
-			mediaContentUrl: 'https://www.youtube.com/v/' + this.song.intro.videoId,
+		this.player.loadVideoById({
+			videoId: this.song.intro.videoId,
 			startSeconds: this.song.intro.start || 0,
-			endSeconds: this.song.intro.end || 999,
+			endSeconds: 5,
 			suggestedQuality: 'default'
 		});
+		clearInterval(this.pauseInterval);
+		this.pauseInterval = setInterval(() => {
+			if(this.player.getCurrentTime() > this.song.intro.end) {
+				this.player.pauseVideo();
+				clearInterval(this.pauseInterval);
+			}
+		}, 100);
 		this.logger.info('Artist: ' + this.song.artist.name);
 		this.logger.info('Song: ' + this.song.name);
 		this.logger.info('Start: ' + this.song.intro.start + ', End: ' + this.song.intro.end + ', Chorus: ' + this.song.intro.chorus);
@@ -47,22 +58,22 @@ export class Intros {
 	}
 
 	playPause() {
-		this.player.getPlayerState().then(state => {
-			if(state === 1) {
-				this.player.pauseVideo();
-			} else {
-				this.player.playVideo();
-			}
-		});
+		if(this.player.getPlayerState() === 1) {
+			this.player.pauseVideo();
+		} else {
+			this.player.playVideo();
+		}
 	}
 
 	playChorus() {
+		clearInterval(this.pauseInterval);
 		this.title = this.song.artist.name + ' - ' + this.song.name;
 		this.player.seekTo(this.song.intro.chorus || 0);
 		this.player.playVideo();
 	}
 
 	detached() {
+		clearInterval(this.pauseInterval);
 		this.unsubscribe.dispose();
 	}
 

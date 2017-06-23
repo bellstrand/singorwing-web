@@ -63,16 +63,22 @@ export class FindSong {
 
 	next() {
 		this.index = this.index !== this.songs.length - 1 ? this.index + 1 : 0;
-		this.findSong = this.getFindSong();
-		this.generateRivets();
-		this.logInfo();
+		this.findSong = null;
+		setTimeout(() => {
+			this.findSong = this.getFindSong();
+			this.generateRivets();
+			this.logInfo();
+		}, 1);
 	}
 
 	previous() {
 		this.index = this.index !== 0 ? this.index - 1 : this.songs.length - 1;
-		this.findSong = this.getFindSong();
-		this.generateRivets();
-		this.logInfo();
+		this.findSong = null;
+		setTimeout(() => {
+			this.findSong = this.getFindSong();
+			this.generateRivets();
+			this.logInfo();
+		}, 1);
 	}
 
 	logInfo() {

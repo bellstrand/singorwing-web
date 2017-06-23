@@ -1,0 +1,20 @@
+@import 'global/reset.css';
+@import 'global/typography.css';
+@import 'global/helpers.css';
+@import 'global/forms.css';
+@import 'global/tables.css';
+
+
+@import 'global/layout.css';
+
+@import 'splash.css';
+
+@import 'home.css';
+@import 'admin/admin.css';
+@import 'games/menu.css';
+@import 'score/score.css';
+@import 'games/guess-artist.css';
+@import 'games/find-songs.css';
+@import 'games/duel.css';
+@import 'games/intros.css';
+@import 'games/title-distortions.css';

@@ -7,7 +7,7 @@ import {Base64Utils} from './utils/base64-utils';
 export class App {
 	constructor(http, events, base64Utils) {
 		http.configure(config => {
-			config.withBaseUrl('http://' + location.hostname + ':' + location.port + '/api/');
+			config.withBaseUrl('/api/');
 			config.withDefaults({
 				credentials: 'include',
 				headers: {
@@ -15,19 +15,20 @@ export class App {
 					'X-Requested-With': 'Fetch'
 				}
 			});
+			config.rejectErrorResponses();
 			config.withInterceptor({
-				response(response) {
-					if(response.status !== 200) {
-						throw response.statusText;
+				responseError(response) {
+					if(response.status === 401) {
+						router.navigateToRoute('home');
 					}
-					return response;
+					throw response;
 				}
 			});
 		});
 	}
 
 	configureRouter(config, router) {
-		config.title = 'Sing it or Wing it';
+		config.title = 'Sing or Wing';
 		config.options.pushState = true;
 		config.map([
 			{ route: '',					name: 'home',				moduleId: 'home' },
@@ -45,6 +46,7 @@ export class App {
 		config.mapUnknownRoutes(() => {
 			router.navigateToRoute('home');
 		});
+
 		this.router = router;
 	}
 }

@@ -1,5 +1,7 @@
 export function shuffle(array) {
-	let i = array.length, temp, index;
+	let i = array.length;
+	let temp;
+	let index;
 	while(i > 0) {
 		index = Math.floor(Math.random() * i);
 		i--;

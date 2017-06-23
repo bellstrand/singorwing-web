@@ -3,17 +3,14 @@ sudo: required
 language: node_js
 
 node_js:
-  - "6"
+  - "7"
 
 services:
   - docker
 
-before_script:
-  - jspm install
-
 script:
-  - gulp lint
-  - gulp export
+  - au lint
+  - au build --env prod
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
