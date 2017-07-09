@@ -59,7 +59,7 @@ textarea {
     cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
-    border: 1px solid darken($default, 10%);
+    border: none;
     border-radius: $border-radius;
 	color: $white;
     background: $default;
@@ -84,35 +84,30 @@ textarea {
 
 .btn-primary {
 	background-color: $primary;
-	border-color: darken($primary, 10%);
 	&:hover {
 		background-color: darken($primary, 10%);
 	}
 }
 .btn-success {
 	background-color: $success;
-	border-color: darken($success, 10%);
 	&:hover {
 		background-color: darken($success, 10%);
 	}
 }
 .btn-info {
 	background-color: $info;
-	border-color: darken($info, 10%);
 	&:hover {
 		background-color: darken($info, 10%);
 	}
 }
 .btn-warning {
 	background-color: $warning;
-	border-color: darken($warning, 10%);
 	&:hover {
 		background-color: darken($warning, 10%);
 	}
 }
 .btn-danger {
 	background: $danger;
-	border-color: darken($danger, 10%);
 	&:hover {
 		background-color: darken($danger, 10%);
 	}
